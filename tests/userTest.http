@@ -1,0 +1,29 @@
+GET http://localhost:3000/users
+
+POST http://localhost:3000/users
+content-type: application/json
+
+{
+    "rol": "1",
+    "email": "bot001@example.com",
+    "password": "12345678",
+    "company": "SoyServices.org"
+}
+
+
+PUT http://localhost:3000/users
+content-type: application/json
+
+{
+    "id": "4",
+    "email":"bot111@example.com",
+    "password":"987654321"
+}
+
+DELETE http://localhost:3000/users
+content-type: application/json
+
+{
+    "id": "4"
+}
+
