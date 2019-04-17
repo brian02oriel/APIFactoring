@@ -1,0 +1,26 @@
+//Client request
+GET http://localhost:3000/dashboard
+content-type: application/json
+
+{
+    "id": "1",
+    "rol":1
+}
+
+//Supplier request
+GET http://localhost:3000/dashboard
+content-type: application/json
+
+{
+    "id": "2",
+    "rol":2
+}
+
+//Investor request
+GET http://localhost:3000/dashboard
+content-type: application/json
+
+{
+    "id": "3",
+    "rol":3
+}

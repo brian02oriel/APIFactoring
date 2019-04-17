@@ -8,7 +8,6 @@ module.exports = function (app){
 
     //Get existing users
     app.get('/users', (req, res) =>{
-        console.log(User);
         User.getUsers((err, data) => {
             res.json(data);
         });
