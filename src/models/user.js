@@ -10,6 +10,7 @@ userModel.getUsers = (callback) => {
             if(err){
                 console.log(err);
             } else {
+                console.log(rows);
                 callback(null, rows);
                 }
             }
@@ -25,8 +26,10 @@ userModel.insertUser = (userData, callback) => {
             if(err){
                 console.log(err);
             } else {
+                console.log(rows);
                 callback(null, {
-                    'insertId': rows.insertId
+                    'insertId': rows.insertId,
+                    'rol': userData.rol
                 })
             }
             

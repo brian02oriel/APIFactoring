@@ -24,3 +24,23 @@ content-type: application/json
     "id": "3",
     "rol":3
 }
+
+POST http://localhost:3000/new_invoice
+Content-Type: application/json
+
+{
+"userData": {
+    "id": "2",
+    "rol": 2
+    },
+"invoiceData": {
+    "id_emission": "121236",
+    "em_date": "2019-1-19",
+    "amount": 200000,
+    "factoring_amount": 150000,
+    "min_inversion": 500,
+    "roi": 1.2,
+    "owner": "ServicesCorp",
+    "emitter": "Telefónica"
+    }
+}
