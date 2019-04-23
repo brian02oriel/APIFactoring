@@ -114,83 +114,26 @@ factoringModel.insertInvoice = (userData, invoiceData, callback) => {
                 });
             });
 
-                /*if(err){
-                    console.log(err);
-                    callback(null, {
-                        'error': 'Cannot insert the invoice'
-                    })
-                } else{
-                   // console.log(rows);
-                    callback(null, {
-                        'insertion_msg': 'Invoice inserted',
-                        'insertedId': rows.insertId
-                    })
-                    insertedInvoice = rows.insertId;
-                }
-                console.log("Inserted invoice id", insertedInvoice);*/
-           // });
-
-            //console.log("Inserted invoice id for query", insertedInvoice);
-            //Invoice owner insertion
-           /* connection.query('INSERT INTO user_invoice (users_id, invoices_id) '+
-            'values('+ userData.id +', ' + insertedInvoice + ')',  
-            (err, rows) => {
-                if(err){
-                    console.log(err);
-                    callback(null, {
-                        'error': 'Invoice or user not found'
-                    })
-                } else {
-                    console.log(rows);
-                    callback(null, {
-                        'relation_msg' : ' Now you have an invoice',
-                        'insertedId' : rows.insertId
-                    })
-                   
-                }
-            })*/
-
-            //Invoice emitter search
-           /* connection.query('Select users.id from user_invoice ' +
-            'inner join user_invoice.users_id = users.id '+
-            'inner join user_invoice.invoices_id = invoices.id ' +
-            'where invoices.emitter LIKE users.company', 
-            (err, rows)=>{
-                if(err){
-                    console.log(err);
-                    callback(null, {
-                        'error': 'Emitter company not found'
-                    })
-                } else {
-                    console.log(rows);
-                    callback(null, {
-                        'emitter_msg' : 'The invoice emitter have been informed',
-                        'emitter' : rows.id
-                    })
-                   id_emitter = rows.id;
-                }
-            })*/
-            //Invoice emitter insertion
-           /* connection.query('INSERT INTO user_invoice (users_id, invoices_id) ' +
-            'values('+id_emitter +', ' + insertedInvoice + ')',
-            (err, rows) =>{
-                if(err) {
-                    console.log(err);
-                    callback(null, {
-                        'error': 'Cannot insert the emitter company'
-                    })
-                } else {
-                    console.log(rows);
-                    callback(null, {
-                        'emitter_insert_msg' : 'The invoice emitter have been added',
-                        'insertedId': rows.insertId
-                    })
-                }
-            })*/
-
         }
     }
 }
 
+factoringModel.changeInvoiceState = (userData, invoiceData, callback) =>{
+    if(connection){
+        if(userData.rol === 1){
+            connection.query("UPDATE invoices SET state =" + invoiceData.new_state + " WHERE id = " + invoiceData.id, 
+            (err,rows) => {
+                if(err){
+                    console.log(err);
+                } else {
+                    callback(null, {
+                        msg: "State changes correctly"
+                    })
+                }
+            });
+        }
+    }
+    
+}
 
 module.exports = factoringModel;

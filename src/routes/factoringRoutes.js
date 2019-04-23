@@ -2,7 +2,7 @@ const Factoring = require('../models/factoring');
 
 module.exports = function (app) {
 
-    //Get all the invoices
+    //Get all the invoices depending the role
     app.get('/dashboard', (req, res) => {
         const userData = {
             id: req.body.id,
@@ -20,6 +20,7 @@ module.exports = function (app) {
         })
     })
 
+    //Only Supplier can insert invoices
     app.post('/new_invoice', (req, res) =>{
         const userData = {
             id: req.body.userData.id,
@@ -53,4 +54,36 @@ module.exports = function (app) {
             }
         })
     })
+
+    //Only the Client can change an invoice state
+    app.put('/state', (req, res)=>{
+        const userData = {
+            id: req.body.userData.id,
+            rol: req.body.userData.rol
+        }
+
+        const invoiceData = {
+            id: req.body.invoiceData.id,
+            new_state: req.body.invoiceData.state
+        }
+
+        Factoring.changeInvoiceState(userData, invoiceData, (err, data)=>{
+            if(data) {
+                res.json({
+                    success: true,
+                    data: data
+                })
+            } else {
+                res.status(500).json({
+                    success: false,
+                    msg: 'Error: Cannot update invoice state',
+                    data: data
+                })
+            }
+        })
+    })
+
+    //Preguntar si las facturas se pueden borrar antes de ser aprobadas
+
+
 }

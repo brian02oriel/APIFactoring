@@ -44,3 +44,17 @@ Content-Type: application/json
     "emitter": "Telefónica"
     }
 }
+
+PUT http://localhost:3000/state
+Content-Type: application/json
+
+{
+"userData":{
+        "id": "1",
+        "rol": 1
+    },
+"invoiceData":{
+        "id": "32",
+        "state": 2
+    }
+}
