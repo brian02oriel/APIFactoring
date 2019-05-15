@@ -8,7 +8,7 @@ factoringModel.getInvoice = (userData, callback) => {
     if(connection){
         switch(userData.rol) {
             //For clients
-            case 1: 
+            case '1': 
             connection.query(
                 "select users.id as users_id, invoices.id as invoices_id, invoices.id_emission as id_emitted, users.company as client_company, invoices.owner as supplier, invoices.state as state, invoices.amount as amount " +
                 "from user_invoice " +
@@ -25,7 +25,7 @@ factoringModel.getInvoice = (userData, callback) => {
             break;
             
             //For suppliers
-            case 2:
+            case '2':
             connection.query(
                 "select users.id as supplier, invoices.id as invoices, invoices.id_emission as id_emitted, users.company as owner, invoices.emitter as emitter, invoices.state as state, invoices.amount, invoices.em_date as emission_date " +
                 "from user_invoice "+
@@ -43,7 +43,7 @@ factoringModel.getInvoice = (userData, callback) => {
             break;
             
             //For investors
-            case 3: 
+            case '3': 
             connection.query(
                 "select users.id as investor_id, invoices.id as invoice_id,invoices.owner as owner, invoices.emitter as emitter, invoices.factoring_amount as factoring_amount, invoices.roi as roi, investor_invoice.inversion as my_inversion " +
                 "from investor_invoice " +

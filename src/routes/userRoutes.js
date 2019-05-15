@@ -1,6 +1,5 @@
 const User = require('../models/user');
 
-
 module.exports = function (app){
     app.get('/', (req, res)=>{
         res.json([]);

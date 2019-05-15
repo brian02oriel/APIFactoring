@@ -1,14 +1,15 @@
 const Factoring = require('../models/factoring');
 
 module.exports = function (app) {
-
+    
     //Get all the invoices depending the role
     app.get('/dashboard', (req, res) => {
         const userData = {
-            id: req.body.id,
-            rol: req.body.rol
+            id: req.query.id,
+            rol: req.query.rol
         }
-
+        console.log(req.query);
+        //console.log(req.params);
         Factoring.getInvoice(userData, (err, data) =>{
             if(data){
                 res.json(data);
