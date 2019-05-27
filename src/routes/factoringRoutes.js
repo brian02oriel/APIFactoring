@@ -30,12 +30,13 @@ module.exports = function (app) {
         const invoiceData = {
             id_emission: req.body.invoiceData.id_emission,
             em_date: req.body.invoiceData.em_date,
+            exp_date: req.body.invoiceData.exp_date,
             amount: req.body.invoiceData.amount,
             factoring_amount: req.body.invoiceData.factoring_amount,
             min_inversion: req.body.invoiceData.min_inversion,
             roi: req.body.invoiceData.roi,
             owner: req.body.invoiceData.owner,
-            emitter: req.body.invoiceData.emitter
+            debtor: req.body.invoiceData.debtor
         };
 
         Factoring.insertInvoice(userData, invoiceData, (err, data) =>{

@@ -6,8 +6,8 @@ module.exports = function (app){
     });
 
     //Get existing users
-    app.get('/users', (req, res) =>{
-        User.getUsers((err, data) => {
+    app.get('/client', (req, res) =>{
+        User.getClient((err, data) => {
             res.json(data);
         });
     });    

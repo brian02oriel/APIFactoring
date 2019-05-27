@@ -1,29 +1,18 @@
 //Client request
-GET http://localhost:3000/dashboard
+GET http://localhost:3000/dashboard?id=1&rol=1
 content-type: application/json
 
-{
-    "id": "1",
-    "rol":1
-}
 
 //Supplier request
-GET http://localhost:3000/dashboard
+GET http://localhost:3000/dashboard?id=2&rol=2
 content-type: application/json
 
-{
-    "id": "2",
-    "rol":2
-}
 
 //Investor request
-GET http://localhost:3000/dashboard
+GET http://localhost:3000/dashboard?id=3&rol=3
 content-type: application/json
 
-{
-    "id": "3",
-    "rol":3
-}
+
 
 POST http://localhost:3000/new_invoice
 Content-Type: application/json
@@ -31,17 +20,18 @@ Content-Type: application/json
 {
 "userData": {
     "id": "2",
-    "rol": 2
+    "rol": "2"
     },
 "invoiceData": {
-    "id_emission": "121236",
+    "id_emission": "100019",
     "em_date": "2019-1-19",
+    "exp_date": "2019-3-19",
     "amount": 200000,
     "factoring_amount": 150000,
     "min_inversion": 500,
     "roi": 1.2,
-    "owner": "ServicesCorp",
-    "emitter": "Telefónica"
+    "owner": "Proveedores de Servicios",
+    "debtor": "Telefónica"
     }
 }
 

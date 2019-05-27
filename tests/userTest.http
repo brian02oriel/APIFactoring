@@ -4,10 +4,11 @@ POST http://localhost:3000/users
 content-type: application/json
 
 {
-    "rol": "2",
-    "email": "bot002@example.com",
+    "rol": "3",
+    "email": "i01@example.com",
     "password": "12345678",
-    "company": "InfoSuppliesPTY"
+    "tel": "231-2331",
+    "company": "Smart Investors"
 }
 
 
@@ -15,9 +16,9 @@ PUT http://localhost:3000/users
 content-type: application/json
 
 {
-    "id": "4",
-    "email":"bot111@example.com",
-    "password":"987654321"
+    "id": "1",
+    "email":"bot0111@example.com",
+    "password": "987654332"
 }
 
 DELETE http://localhost:3000/users
